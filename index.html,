@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zubair Ahmad | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080b14;
+  --card: #111827;
+  --text: #f8fafc;
+  --muted: #a7b0c3;
+  --purple: #8b5cf6;
+  --cyan: #22d3ee;
+  --line: rgba(255,255,255,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background:
+    radial-gradient(circle at 80% 10%, #27204d, transparent 30%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.container {
+  width: 90%;
+  max-width: 1120px;
+  margin: auto;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(8,11,20,0.8);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.logo span,
+.section-title span {
+  color: var(--cyan);
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -4px;
+  margin-bottom: 25px;
+}
+
+h1 span {
+  color: var(--cyan);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.hero p,
+.about-text,
+.card p,
+.contact p {
+  color: var(--muted);
+}
+
+.hero p {
+  max-width: 580px;
+  font-size: 1.1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 23px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), #6366f1);
+  color: white;
+}
+
+.btn-secondary {
+  color: white;
+  border: 1px solid var(--line);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px #0006;
+}
+
+.profile-card,
+.card,
+.info,
+.contact {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #ffffff12, #ffffff03);
+}
+
+.profile-card {
+  padding: 35px;
+  border-radius: 30px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  margin: auto auto 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+}
+
+.profile-card h3,
+.profile-card p {
+  text-align: center;
+}
+
+.profile-card p {
+  color: var(--muted);
+}
+
+section {
+  padding: 110px 0;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -2px;
+  margin-bottom: 40px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+}
+
+.info-list {
+  display: grid;
+  gap: 15px;
+}
+
+.info {
+  padding: 18px 20px;
+  border-radius: 16px;
+}
+
+.info strong {
+  display: block;
+  color: var(--cyan);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 28px;
+  border-radius: 22px;
+  transition: 0.35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--purple);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill {
+  padding: 12px 18px;
+  border: 1px solid #8b5cf655;
+  background: #8b5cf611;
+  border-radius: 100px;
+  color: #ddd6fe;
+}
+
+.contact {
+  padding: 55px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.contact p {
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: 0.8s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 0.75rem;
+  }
+
+  h1 {
+    letter-spacing: -2px;
+  }
+
+  .contact {
+    padding: 35px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">Zubair<span>.</span></div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero container">
+  <div class="hero-grid">
+
+    <div class="reveal">
+      <div class="eyebrow">Welcome to my portfolio</div>
+
+      <h1>
+        Building my<br>
+        future with <span>purpose.</span>
+      </h1>
+
+      <p>
+        I’m Zubair Ahmad, an Integrated Business Management
+        student at Dong-A University in South Korea.
+        I’m passionate about leadership, teamwork,
+        learning, and personal growth.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="#about">
+          Explore My Story ↗
+        </a>
+
+        <a class="btn btn-secondary" href="#contact">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+
+    <div class="profile-card reveal">
+      <div class="avatar">ZA</div>
+
+      <h3>Zubair Ahmad</h3>
+
+      <p>
+        Business Management Student<br>
+        South Korea
+      </p>
+    </div>
+
+  </div>
+</header>
+
+<section id="about">
+  <div class="container reveal">
+
+    <h2 class="section-title">
+      A little <span>about me.</span>
+    </h2>
+
+    <div class="about-grid">
+
+      <div class="about-text">
+        <p>
+          I am an international student studying
+          Integrated Business Management.
+          My goal is to develop strong business knowledge,
+          practical skills, and confidence.
+        </p>
+
+        <br>
+
+        <p>
+          I believe discipline, communication,
+          leadership, and continuous learning
+          are the foundation of meaningful success.
+        </p>
+      </div>
+
+      <div class="info-list">
+
+        <div class="info">
+          <strong>Location</strong>
+          Busan, South Korea
+        </div>
+
+        <div class="info">
+          <strong>Field</strong>
+          Integrated Business Management
+        </div>
+
+        <div class="info">
+          <strong>Languages</strong>
+          Urdu, English, Punjabi
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container reveal">
+
+    <h2 class="section-title">
+      My <span>journey.</span>
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>University Education</h3>
+        <p>
+          Studying Integrated Business Management
+          at Dong-A University, South Korea.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>International Experience</h3>
+        <p>
+          Learning and growing in a multicultural
+          environment while studying abroad.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Future Goals</h3>
+        <p>
+          Developing business expertise and
+          building a successful professional career.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container reveal">
+
+    <h2 class="section-title">
+      My <span>strengths.</span>
+    </h2>
+
+    <div class="skills">
+      <span class="skill">Leadership</span>
+      <span class="skill">Teamwork</span>
+      <span class="skill">Communication</span>
+      <span class="skill">Sportsmanship</span>
+      <span class="skill">Basic Computer Skills</span>
+      <span class="skill">Time Management</span>
+      <span class="skill">Continuous Learning</span>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container reveal">
+
+    <h2 class="section-title">
+      Beyond <span>academics.</span>
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">⚽</div>
+        <h3>Sports</h3>
+        <p>
+          Sports help me develop discipline,
+          teamwork, and a competitive mindset.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📚</div>
+        <h3>Learning</h3>
+        <p>
+          I enjoy learning new skills,
+          improving communication, and
+          exploring business ideas.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>People</h3>
+        <p>
+          I value cooperation, respect,
+          and learning from different people.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+
+    <div class="contact reveal">
+
+      <h2 class="section-title">
+        Let’s connect<span>.</span>
+      </h2>
+
+      <p>
+        Thank you for visiting my portfolio.
+        I’m always open to learning opportunities,
+        meaningful conversations, and new experiences.
+      </p>
+
+      <a class="btn btn-primary"
+         href="mailto:your-email@example.com">
+        Send Me an Email ✉
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Zubair Ahmad · Designed with passion and purpose.
+</footer>
+
+<script>
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+
+document.querySelectorAll(".reveal").forEach((element) => {
+  observer.observe(element);
+});
+</script>
+
+</body>
+</html>
